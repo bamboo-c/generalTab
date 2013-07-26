@@ -5,15 +5,12 @@
  *--------------------------------------------------------------------------*/
 ;(function($){
 	$.fn.generalTab = function(){
-		var generalTabNav   = $(".js-generalTabNavigation a");
-		var generalTabPanel = $(".js-generalTabBody section");
-
-		generalTabPanel.not(".active").hide();
-		generalTabNav.on('click', function(){
-			generalTabPanel.hide();
-			$($(this).attr('href')).show();
-			$(this).addClass('active');
-			return false;
+		this.each(function() {
+			$(this).find(".js-generalTabNavigation a").on('click', function(ev) {
+				$($(this).attr('href')).parent().children().hide();
+				$($(this).attr('href')).show();
+				return false;
+			});
 		});
 	return this;
 	};
