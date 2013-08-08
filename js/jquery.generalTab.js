@@ -5,22 +5,18 @@
  *--------------------------------------------------------------------------*/
 ;(function($){
 	$.fn.generalTab = function(config){
-		var defaults = {
+		var options = $.extend({
 			navigationClass:".generalTabNavigation",
 			panelClass:".generalTabBody"
-		};
-		var options = $.extend(defaults,config);
-		var generalTabNav   = $($(options.navigationClass).find("a"));
-		var generalTabPanel = $(options.panelClass);
-
-		generalTabPanel.not(".active").hide();
+		}, config);
 
 		this.each(function() {
-			$(this).find(generalTabNav).on('click', function(ev) {
-				$(generalTabPanel).hide();
+			var $self = $(this);
+			$self.find(options.navigationClass).on('click', 'a', function(ev) {
+				$self.find(options.panelClass).hide();
 				$($(this).attr('href')).show();
 				return false;
-			});
+			}).find('.default').click();
 		});
 	return this;
 	};
