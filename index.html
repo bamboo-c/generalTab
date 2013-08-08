@@ -18,25 +18,29 @@
 <h2 class="subheader">jquery.generalTab.js</h2>
 <div class="js-generalTabNavigation">
 <ul class="inline-list">
+<li><a href="#panel1">Panel1</a>
+<ul>
 <li><a href="#panel1">Panel1</a></li>
+<li><a href="#panel2">Panel2</a></li>
+<li><a href="#panel3">Panel3</a></li>
+</ul>
+</li>
 <li><a href="#panel2">Panel2</a></li>
 <li><a href="#panel3">Panel3</a></li>
 </ul>
 <!-- /.generalTabNavigation --></div>
 
-<div class="js-generalTabBody">
-<section id="panel1" class="active">
-<p>Panel1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!</p>
+<section id="panel1" class="js-generalTabBody active">
+<p><span class="label">Panel1</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!</p>
 <!-- /#panel1 --></section>
 
-<section id="panel2">
-<p>Panel2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!</p>
+<section id="panel2" class="js-generalTabBody">
+<p><span class="alert label">Panel2</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!</p>
 <!-- /#panel1 --></section>
 
-<section id="panel3">
-<p>Panel3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!</p>
+<section id="panel3" class="js-generalTabBody">
+<p><span class="success label">Panel3</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta velit quae dolorum dolorem ab reprehenderit eius. Facilis assumenda rem ipsum a reprehenderit quasi blanditiis officiis deleniti fuga voluptate dolorum provident!</p>
 <!-- /#panel1 --></section>
-<!-- /.js-generalTabBody --></div>
 <!-- /#tab --></section>
 
 <p><small>&copy; komei otake.</small></p>
@@ -48,7 +52,10 @@
 <script src="js/jquery.generalTab.js"></script>
 <script>
 (function($){
-	$(".js-generalTab").generalTab();
+	$(".js-generalTab").generalTab({
+		navigationClass:".js-generalTabNavigation",
+		panelClass:".js-generalTabBody"
+	});
 })(jQuery);
 </script>
 </body>
