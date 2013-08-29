@@ -16,25 +16,23 @@
 
 		this.each(function() {
 			var $self = $(this);
-			var $navigationClass = $self.find(options.navigationClass);
-
 			//個別のタブパネルのナビゲーションのa要素がclickされたら
-			$navigationClass.on('click', 'a', function(ev) {
+			$self.find(options.navigationClass).on('click', 'a', function(ev) {
 				//個別のタブパネルのパネルを非表示
 				$self.find(options.panelClass).hide();
-				//clickされた要素のhrefと同じidの要素を表示
+				//clickされた要素のhrefと同じidを表示
 				$($(this).attr('href')).show();
 				return false;
-			});
+				//.defaultが付いた要素にはclickイベントを発火させる
+			}).find('.default').click();
 
-			//.defaultを$defaultTabに代入
-			var $defaultTab = $navigationClass.find(".default");
-			if($defaultTab.length === 0) {
-				//最初のa要素を$defaultTabに代入
-				$defaultTab = $navigationClass.find("a").eq(0);
+			//defaultの指定がなかったら
+			if(!$self.find(options.navigationClass).hasClass('.default')) {
+				//パネルを全部消す
+				$self.find(options.panelClass).hide();
+				//最初のパネルを表示
+				$self.find(options.panelClass).eq(0).show();
 			}
-			//$defaultTabのclickイベントを発火
-			$defaultTab.click();
 		});
 	return this;
 	};
